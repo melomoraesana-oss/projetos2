@@ -1,1 +1,253 @@
-<link rel="stylesheet" href="style.css">
+/* ==========================================================================
+   STYLE.CSS - O Motor do Brasil: A Força da Nossa Agricultura
+   ========================================================================== */
+
+/* VARIÁVEIS DE CORES (Facilita a personalização do site) */
+:root {
+    --cor-primaria: #1e4630;       /* Verde Floresta Escuro */
+    --cor-secundaria: #2e7559;     /* Verde Folha */
+    --cor-destaque: #8fa89b;       /* Verde Neutro Claro */
+    --cor-fundo: #f4f7f5;          /* Cinza Claro Esverdeado */
+    --cor-texto-escuro: #333333;   /* Texto Principal */
+    --cor-texto-claro: #4a5568;    /* Texto Secundário */
+    --cor-branco: #ffffff;
+}
+
+/* 1. CONFIGURAÇÕES GERAIS E RESET */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth; /* Deslize suave entre as secções */
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto-escuro);
+}
+
+/* 2. CABEÇALHO PRINCIPAL (HERO) */
+header {
+    background: linear-gradient(rgba(46, 117, 89, 0.85), rgba(34, 76, 56, 0.95)), 
+                url('https://images.unsplash.com/photo-1592417817098-8f3d6eb19675?auto=format&fit=crop&q=80&w=1200') no-repeat center center/cover;
+    color: var(--cor-branco);
+    padding: 120px 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+header p {
+    font-size: 1.3rem;
+    max-width: 800px;
+    margin: 0 auto;
+    opacity: 0.9;
+}
+
+/* 3. BARRA DE NAVEGAÇÃO FIXA */
+nav {
+    background-color: var(--cor-primaria);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li a {
+    display: block;
+    color: var(--cor-branco);
+    text-decoration: none;
+    padding: 20px 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: var(--cor-secundaria);
+}
+
+/* Classe controlada pelo script.js para marcar onde o utilizador está a ler */
+nav ul li a.active {
+    background-color: var(--cor-secundaria);
+    box-shadow: inset 0 -4px 0 var(--cor-branco);
+}
+
+/* 4. ESTRUTURA DO CONTEÚDO (CONTAINER E SECÇÕES) */
+.container {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+section {
+    background: var(--cor-branco);
+    padding: 45px;
+    border-radius: 10px;
+    margin-bottom: 45px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+    scroll-margin-top: 85px; /* Evita que o menu tape o título ao clicar */
+}
+
+section h2 {
+    color: var(--cor-primaria);
+    border-left: 6px solid var(--cor-secundaria);
+    padding-left: 15px;
+    margin-bottom: 25px;
+    font-size: 2rem;
+}
+
+.intro-text {
+    font-size: 1.15rem;
+    color: var(--cor-texto-claro);
+    margin-bottom: 30px;
+}
+
+/* 5. CARDS EM GRID */
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background: #fcfdfe;
+    border: 1px solid #e2ece7;
+    border-top: 5px solid var(--cor-secundaria);
+    padding: 30px;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(46, 117, 89, 0.1);
+}
+
+.card h3, .card h4 {
+    color: var(--cor-primaria);
+    margin-bottom: 12px;
+    font-size: 1.4rem;
+}
+
+/* 6. CAIXAS DE DESTAQUE (ESTATÍSTICAS) */
+.stats-box {
+    background: #eef7f2;
+    border-left: 5px solid var(--cor-secundaria);
+    padding: 25px;
+    margin: 25px 0;
+    border-radius: 0 8px 8px 0;
+}
+
+.stats-box li {
+    margin-bottom: 15px;
+    list-style-type: none;
+    position: relative;
+    padding-left: 20px;
+}
+
+.stats-box li::before {
+    content: "✓";
+    color: var(--cor-secundaria);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+.stats-box li:last-child {
+    margin-bottom: 0;
+}
+
+/* 7. CITAÇÕES (BLOQUEIOS DE TEXTO) */
+blockquote {
+    background: var(--cor-primaria);
+    color: var(--cor-branco);
+    padding: 30px;
+    border-radius: 8px;
+    font-style: italic;
+    font-size: 1.25rem;
+    text-align: center;
+    margin: 35px 0;
+    box-shadow: inset 0 0 100px rgba(0,0,0,0.2);
+}
+
+/* 8. LISTAS DE SUSTENTABILIDADE */
+ol {
+    padding-left: 20px;
+}
+
+ol li {
+    margin-bottom: 20px;
+    font-size: 1.05rem;
+}
+
+ol li strong {
+    color: var(--cor-secundaria);
+    font-size: 1.1rem;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+/* 9. RODAPÉ */
+footer {
+    background-color: #132c1e;
+    color: #a3b8ad;
+    text-align: center;
+    padding: 50px 20px;
+    margin-top: 80px;
+}
+
+footer p {
+    margin-bottom: 20px;
+}
+
+footer .footer-nav a {
+    color: var(--cor-branco);
+    text-decoration: none;
+    margin: 0 12px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+footer .footer-nav a:hover {
+    color: #a3e2c9;
+}
+
+/* 10. ESTILO RESPONSIVO (TELEMÓVEIS / TABLETS) */
+@media (max-width: 768px) {
+    header {
+        padding: 80px 20px;
+    }
+    header h1 {
+        font-size: 2.2rem;
+    }
+    nav ul {
+        flex-direction: column;
+        text-align: center;
+    }
+    nav ul li a {
+        padding: 15px;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    section {
+        padding: 25px;
+    }
+    section h2 {
+        font-size: 1.6rem;
+    }
+}
