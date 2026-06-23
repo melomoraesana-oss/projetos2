@@ -1,1 +1,644 @@
 # projetos2
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O Motor do Brasil: A Força da Nossa Agricultura</title>
+    <style>
+        /* CONFIGURAÇÕES GERAIS E RESET */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        html {
+            scroll-behavior: smooth; /* Faz o deslize entre secções ser suave */
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f7f5;
+            color: #333;
+        }
+        
+        /* CABEÇALHO PRINCIPAL (HERO) */
+        header {
+            background: linear-gradient(rgba(46, 117, 89, 0.85), rgba(34, 76, 56, 0.95)), url('https://images.unsplash.com/photo-1592417817098-8f3d6eb19675?auto=format&fit=crop&q=80&w=1200') no-repeat center center/cover;
+            color: #fff;
+            padding: 120px 20px;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        header p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        /* BARRA DE NAVEGAÇÃO FIXA */
+        nav {
+            background-color: #1e4630;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li a {
+            display: block;
+            color: #fff;
+            text-decoration: none;
+            padding: 20px 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        nav ul li a:hover {
+            background-color: #2e7559;
+            color: #fff;
+        }
+
+        /* CARDÁPIO / CONTEÚDO PRINCIPAL */
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        section {
+            background: #fff;
+            padding: 45px;
+            border-radius: 10px;
+            margin-bottom: 45px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+            scroll-margin-top: 85px; /* Evita que o menu fixo tape os títulos ao clicar */
+        }
+        section h2 {
+            color: #1e4630;
+            border-left: 6px solid #2e7559;
+            padding-left: 15px;
+            margin-bottom: 25px;
+            font-size: 2rem;
+        }
+        .intro-text {
+            font-size: 1.15rem;
+            color: #4a5568;
+            margin-bottom: 30px;
+        }
+
+        /* SISTEMA DE GRAFOS / CARDS (GRID) */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .card {
+            background: #fcfdfe;
+            border: 1px solid #e2ece7;
+            border-top: 5px solid #2e7559;
+            padding: 30px;
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(46, 117, 89, 0.1);
+        }
+        .card h3, .card h4 {
+            color: #1e4630;
+            margin-bottom: 12px;
+            font-size: 1.4rem;
+        }
+
+        /* CAIXAS DE DESTAQUE */
+        .stats-box {
+            background: #eef7f2;
+            border-left: 5px solid #2e7559;
+            padding: 25px;
+            margin: 25px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .stats-box li {
+            margin-bottom: 15px;
+            list-style-type: none;
+            position: relative;
+            padding-left: 20px;
+        }
+        .stats-box li::before {
+            content: "✓";
+            color: #2e7559;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        .stats-box li:last-child {
+            margin-bottom: 0;
+        }
+
+        /* CITAÇÕES (PRODUÇÃO SUSTENTÁVEL) */
+        blockquote {
+            background: #1e4630;
+            color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            font-style: italic;
+            font-size: 1.25rem;
+            text-align: center;
+            margin: 35px 0;
+            box-shadow: inset 0 0 100px rgba(0,0,0,0.2);
+        }
+
+        /* LISTAS DE SUSTENTABILIDADE */
+        ol {
+            padding-left: 20px;
+        }
+        ol li {
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+        ol li strong {
+            color: #2e7559;
+            font-size: 1.1rem;
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+
+        /* RODAPÉ DO SITE */
+        footer {
+            background-color: #132c1e;
+            color: #a3b8ad;
+            text-align: center;
+            padding: 50px 20px;
+            margin-top: 80px;
+        }
+        footer p {
+            margin-bottom: 20px;
+        }
+        footer .footer-nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 12px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        footer .footer-nav a:hover {
+            color: #a3e2c9;
+        }
+
+        /* ESTILO RESPONSIVO PARA ECRÃS PEQUENOS (TELEMÓVEIS) */
+        @media (max-width: 768px) {
+            header { padding: 80px 20px; }
+            header h1 { font-size: 2.2rem; }
+            nav ul { flex-direction: column; text-align: center; }
+            nav ul li a { padding: 15px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+            section { padding: 25px; }
+            section h2 { font-size: 1.6rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header id="topo">
+        <h1>O Motor do Brasil: A Força da Nossa Agricultura</h1>
+        <p>Como o campo alimenta o país, impulsiona a economia e conecta o Brasil ao mundo.</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#home">Início</a></li>
+            <li><a href="#economia">Economia & Empregos</a></li>
+            <li><a href="#exportacoes">O Brasil no Mundo</a></li>
+            <li><a href="#sustentabilidade">Sustentabilidade</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        
+        <section id="home">
+            <h2>Quem Somos / O Projeto</h2>
+            <p class="intro-text">
+                A agricultura brasileira é muito mais do que plantar e colher. Ela é sinónimo de inovação, segurança alimentar e desenvolvimento social. Este site nasceu com o objetivo de valorizar o trabalho do produtor rural e mostrar como o agronegócio impacta o dia a dia de cada brasileiro.
+            </p>
+            
+            <div class="grid-3">
+                <div class="card">
+                    <h3>Pilar Económico</h3>
+                    <p>Milhões em investimentos, biliões em exportações e forte geração de empregos. Garante a estabilidade e o crescimento contínuo do PIB nacional.</p>
+                </div>
+                <div class="card">
+                    <h3>Pilar Social</h3>
+                    <p>Sustento para milhões de famílias e fixação do homem no campo de forma digna. Alimenta a população urbana e mitiga as desigualdades regionais.</p>
+                </div>
+                <div class="card">
+                    <h3>Pilar Tecnológico</h3>
+                    <p>Uso extensivo de IA, drones, satélites de mapeamento e biotecnologia de ponta. Permite produzir muito mais utilizando menos área.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="economia">
+            <h2>O Combustível do PIB Brasileiro</h2>
+            <p>A agricultura é o motor mais resiliente da economia brasileira. Graças ao clima tropical favorável, à vasta extensão territorial e a décadas de investimento científico, o país consolidou-se como uma superpotência global.</p>
+            
+            <div class="stats-box">
+                <ul>
+                    <li><strong>Participação no PIB:</strong> A cadeia alargada do agronegócio (insumos, produção, transporte e distribuição) representa cerca de <strong>25%</strong> de toda a riqueza gerada no país.</li>
+                    <li><strong>Geração de Empregos:</strong> É um dos maiores empregadores do Brasil. Desde o campo até aos centros de investigação urbana, milhões de empregos diretos e indiretos dependem desta força.</li>
+                    <li><strong>Balança Comercial:</strong> Os saldos positivos das exportações do campo trazem segurança cambial, equilibrando as contas do país e atraindo novos investimentos.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="exportacoes">
+            <h2>O Celeiro do Mundo</h2>
+            <p>O Brasil desempenha um papel geoestratégico essencial na segurança alimentar do planeta, ajudando a alimentar mais de mil milhões de pessoas mundialmente através da exportação de commodities líderes de mercado.</p>
+            
+            <div style="margin-top: 25px;">
+                <p style="margin-bottom: 20px; font-weight: 600;">Principais Destaques Internacionais:</p>
+                <div class="grid-3">
+                    <div class="card" style="border-top-color: #8fa89b;">
+                        <h4>Soja</h4>
+                        <p>O Brasil ocupa de forma consolidada o lugar de maior produtor e exportador global do grão.</p>
+                    </div>
+                    <div class="card" style="border-top-color: #8fa89b;">
+                        <h4>Café</h4>
+                        <p>O grão brasileiro é sinónimo de qualidade global, liderando o mercado mundial há mais de um século.</p>
+                    </div>
+                    <div class="card" style="border-top-color: #8fa89b;">
+                        <h4>Suco de Laranja</h4>
+                        <p>Mais de 50% de todo o sumo de laranja consumido no planeta tem origem nos pomares brasileiros.</p>
+                    </div>
+                    <div class="card" style="border-top-color: #8fa89b;">
+                        <h4>Carnes (Bovina e Frango)</h4>
+                        <p>O país lidera os rankings de exportação de proteína animal, cumprindo exigentes critérios sanitários mundiais.</p>
+                    </div>
+                    <div class="card" style="border-top-color: #8fa89b;">
+                        <h4>Açúcar e Etanol</h4>
+                        <p>Liderança absoluta na cana-de-açúcar, fornecendo adoçantes e biocombustíveis limpos para a transição energética.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="sustentabilidade">
+            <h2>Produzir mais, Preservar Sempre</h2>
+            <p>O grande desafio da nossa geração é expandir a oferta de alimentos em equilíbrio estrito com a preservação ambiental. O Brasil lidera a vanguarda tecnológica no desenvolvimento de soluções agroambientais sustentáveis.</p>
+            
+            <blockquote>
+                "Agricultura de Baixo Carbono: Conjunto de técnicas validadas pela ciência que recuperam solos degradados e sequestram carbono da atmosfera."
+            </blockquote>
+
+            <p style="margin-bottom: 20px; font-weight: 600;">Práticas Verdes Aplicadas no Campo:</p>
+            <ol>
+                <li><strong>Sistema de Plantio Direto:</strong> Cultivo efetuado diretamente sobre a palhada da colheita anterior sem revolver a terra. Evita o desgaste e a erosão do solo, conservando a água.</li>
+                <li><strong>ILPF (Integração Lavoura-Pecuária-Floresta):</strong> Abordagem revolucionária que integra culturas agrícolas, criação de gado e fileiras florestais numa única área, otimizando o terreno e regenerando pastos.</li>
+                <li><strong>Conceito Poupa-Terra:</strong> Graças ao desenvolvimento científico liderado pela EMBRAPA, a produtividade média por hectare cresceu de forma exponencial. Produz-se mais em menos solo, reduzindo a pressão sobre ecossistemas nativos.</li>
+            </ol>
+        </section>
+
+    </div>
+
+    <footer>
+        <p><em>Orgulho de quem cultiva o futuro do Brasil.</em></p>
+        <div class="footer-nav">
+            <a href="#topo">Voltar ao Topo</a> |
+            <a href="#home">Início</a> | 
+            <a href="#economia">Economia</a> | 
+            <a href="#exportacoes">Exportações</a> | 
+            <a href="#sustentabilidade">Sustentabilidade</a>
+        </div>
+        <p style="margin-top: 25px; font-size: 0.85rem; opacity: 0.6;">Contato Oficial: contato@siteagriculturabrasil.com.br</p>
+    </footer>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O Motor do Brasil: A Força da Nossa Agricultura</title>
+    <style>
+        /* CONFIGURAÇÕES GERAIS E RESET */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        html {
+            scroll-behavior: smooth; /* Faz o deslize entre secções ser suave */
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f7f5;
+            color: #333;
+        }
+        
+        /* CABEÇALHO PRINCIPAL (HERO) */
+        header {
+            background: linear-gradient(rgba(46, 117, 89, 0.85), rgba(34, 76, 56, 0.95)), url('https://images.unsplash.com/photo-1592417817098-8f3d6eb19675?auto=format&fit=crop&q=80&w=1200') no-repeat center center/cover;
+            color: #fff;
+            padding: 120px 20px;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        header p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        /* BARRA DE NAVEGAÇÃO FIXA */
+        nav {
+            background-color: #1e4630;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li a {
+            display: block;
+            color: #fff;
+            text-decoration: none;
+            padding: 20px 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        nav ul li a:hover {
+            background-color: #2e7559;
+            color: #fff;
+        }
+
+        /* CARDÁPIO / CONTEÚDO PRINCIPAL */
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        section {
+            background: #fff;
+            padding: 45px;
+            border-radius: 10px;
+            margin-bottom: 45px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+            scroll-margin-top: 85px; /* Evita que o menu fixo tape os títulos ao clicar */
+        }
+        section h2 {
+            color: #1e4630;
+            border-left: 6px solid #2e7559;
+            padding-left: 15px;
+            margin-bottom: 25px;
+            font-size: 2rem;
+        }
+        .intro-text {
+            font-size: 1.15rem;
+            color: #4a5568;
+            margin-bottom: 30px;
+        }
+
+        /* SISTEMA DE GRAFOS / CARDS (GRID) */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .card {
+            background: #fcfdfe;
+            border: 1px solid #e2ece7;
+            border-top: 5px solid #2e7559;
+            padding: 30px;
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(46, 117, 89, 0.1);
+        }
+        .card h3, .card h4 {
+            color: #1e4630;
+            margin-bottom: 12px;
+            font-size: 1.4rem;
+        }
+
+        /* CAIXAS DE DESTAQUE */
+        .stats-box {
+            background: #eef7f2;
+            border-left: 5px solid #2e7559;
+            padding: 25px;
+            margin: 25px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .stats-box li {
+            margin-bottom: 15px;
+            list-style-type: none;
+            position: relative;
+            padding-left: 20px;
+        }
+        .stats-box li::before {
+            content: "✓";
+            color: #2e7559;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        .stats-box li:last-child {
+            margin-bottom: 0;
+        }
+
+        /* CITAÇÕES (PRODUÇÃO SUSTENTÁVEL) */
+        blockquote {
+            background: #1e4630;
+            color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            font-style: italic;
+            font-size: 1.25rem;
+            text-align: center;
+            margin: 35px 0;
+            box-shadow: inset 0 0 100px rgba(0,0,0,0.2);
+        }
+
+        /* LISTAS DE SUSTENTABILIDADE */
+        ol {
+            padding-left: 20px;
+        }
+        ol li {
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+        ol li strong {
+            color: #2e7559;
+            font-size: 1.1rem;
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+
+        /* RODAPÉ DO SITE */
+        footer {
+            background-color: #132c1e;
+            color: #a3b8ad;
+            text-align: center;
+            padding: 50px 20px;
+            margin-top: 80px;
+        }
+        footer p {
+            margin-bottom: 20px;
+        }
+        footer .footer-nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 12px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        footer .footer-nav a:hover {
+            color: #a3e2c9;
+        }
+
+        /* ESTILO RESPONSIVO PARA ECRÃS PEQUENOS (TELEMÓVEIS) */
+        @media (max-width: 768px) {
+            header { padding: 80px 20px; }
+            header h1 { font-size: 2.2rem; }
+            nav ul { flex-direction: column; text-align: center; }
+            nav ul li a { padding: 15px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+            section { padding: 25px; }
+            section h2 { font-size: 1.6rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header id="topo">
+        <h1>O Motor do Brasil: A Força da Nossa Agricultura</h1>
+        <p>Como o campo alimenta o país, impulsiona a economia e conecta o Brasil ao mundo.</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#home">Início</a></li>
+            <li><a href="#economia">Economia & Empregos</a></li>
+            <li><a href="#exportacoes">O Brasil no Mundo</a></li>
+            <li><a href="#sustentabilidade">Sustentabilidade</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        
+        <section id="home">
+            <h2>Quem Somos / O Projeto</h2>
+            <p class="intro-text">
+                A agricultura brasileira é muito mais do que plantar e colher. Ela é sinónimo de inovação, segurança alimentar e desenvolvimento social. Este site nasceu com o objetivo de valorizar o trabalho do produtor rural e mostrar como o agronegócio impacta o dia a dia de cada brasileiro.
+            </p>
+            
+            <div class="grid-3">
+                <div class="card">
+                    <h3>Pilar Económico</h3>
+                    <p>Milhões em investimentos, biliões em exportações e forte geração de empregos. Garante a estabilidade e o crescimento contínuo do PIB nacional.</p>
+                </div>
+                <div class="card">
+                    <h3>Pilar Social</h3>
+                    <p>Sustento para milhões de famílias e fixação do homem no campo de forma digna. Alimenta a população urbana e mitiga as desigualdades regionais.</p>
+                </div>
+                <div class="card">
+                    <h3>Pilar Tecnológico</h3>
+                    <p>Uso extensivo de IA, drones, satélites de mapeamento e biotecnologia de ponta. Permite produzir muito mais utilizando menos área.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="economia">
+            <h2>O Combustível do PIB Brasileiro</h2>
+            <p>A agricultura é o motor mais resiliente da economia brasileira. Graças ao clima tropical favorável, à vasta extensão territorial e a décadas de investimento científico, o país consolidou-se como uma superpotência global.</p>
+            
+            <div class="stats-box">
+                <ul>
+                    <li><strong>Participação no PIB:</strong> A cadeia alargada do agronegócio (insumos, produção, transporte e distribuição) representa cerca de <strong>25%</strong> de toda a riqueza gerada no país.</li>
+                    <li><strong>Geração de Empregos:</strong> É um dos maiores empregadores do Brasil. Desde o campo até aos centros de investigação urbana, milhões de empregos diretos e indiretos dependem desta força.</li>
+                    <li><strong>Balança Comercial:</strong> Os saldos positivos das exportações do campo trazem segurança cambial, equilibrando as contas do país e atraindo novos investimentos.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="exportacoes">
+            <h2>O Celeiro do Mundo</h2>
+            <p>O Brasil desempenha um papel geoestratégico essencial na segurança alimentar do planeta, ajudando a alimentar mais de mil milhões de pessoas mundialmente através da exportação de commodities líderes de mercado.</p>
+            
+            <div style="margin-top: 25px;">
+                <p style="margin-bottom: 20px; font-weight: 600;">Principais Destaques Internacionais:</p>
+                <div class="grid-3">
+                    <div class="card" style="border-top-color: #8fa89b;">
+                        <h4>Soja</h4>
+                        <p>O Brasil ocupa de forma consolidada o lugar de maior produtor e exportador global do grão.</p>
+                    </div>
+                    <div class="card" style="border-top-color: #8fa89b;">
+                        <h4>Café</h4>
+                        <p>O grão brasileiro é sinónimo de qualidade global, liderando o mercado mundial há mais de um século.</p>
+                    </div>
+                    <div class="card" style="border-top-color: #8fa89b;">
+                        <h4>Suco de Laranja</h4>
+                        <p>Mais de 50% de todo o sumo de laranja consumido no planeta tem origem nos pomares brasileiros.</p>
+                    </div>
+                    <div class="card" style="border-top-color: #8fa89b;">
+                        <h4>Carnes (Bovina e Frango)</h4>
+                        <p>O país lidera os rankings de exportação de proteína animal, cumprindo exigentes critérios sanitários mundiais.</p>
+                    </div>
+                    <div class="card" style="border-top-color: #8fa89b;">
+                        <h4>Açúcar e Etanol</h4>
+                        <p>Liderança absoluta na cana-de-açúcar, fornecendo adoçantes e biocombustíveis limpos para a transição energética.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="sustentabilidade">
+            <h2>Produzir mais, Preservar Sempre</h2>
+            <p>O grande desafio da nossa geração é expandir a oferta de alimentos em equilíbrio estrito com a preservação ambiental. O Brasil lidera a vanguarda tecnológica no desenvolvimento de soluções agroambientais sustentáveis.</p>
+            
+            <blockquote>
+                "Agricultura de Baixo Carbono: Conjunto de técnicas validadas pela ciência que recuperam solos degradados e sequestram carbono da atmosfera."
+            </blockquote>
+
+            <p style="margin-bottom: 20px; font-weight: 600;">Práticas Verdes Aplicadas no Campo:</p>
+            <ol>
+                <li><strong>Sistema de Plantio Direto:</strong> Cultivo efetuado diretamente sobre a palhada da colheita anterior sem revolver a terra. Evita o desgaste e a erosão do solo, conservando a água.</li>
+                <li><strong>ILPF (Integração Lavoura-Pecuária-Floresta):</strong> Abordagem revolucionária que integra culturas agrícolas, criação de gado e fileiras florestais numa única área, otimizando o terreno e regenerando pastos.</li>
+                <li><strong>Conceito Poupa-Terra:</strong> Graças ao desenvolvimento científico liderado pela EMBRAPA, a produtividade média por hectare cresceu de forma exponencial. Produz-se mais em menos solo, reduzindo a pressão sobre ecossistemas nativos.</li>
+            </ol>
+        </section>
+
+    </div>
+
+    <footer>
+        <p><em>Orgulho de quem cultiva o futuro do Brasil.</em></p>
+        <div class="footer-nav">
+            <a href="#topo">Voltar ao Topo</a> |
+            <a href="#home">Início</a> | 
+            <a href="#economia">Economia</a> | 
+            <a href="#exportacoes">Exportações</a> | 
+            <a href="#sustentabilidade">Sustentabilidade</a>
+        </div>
+        <p style="margin-top: 25px; font-size: 0.85rem; opacity: 0.6;">Contato Oficial: contato@siteagriculturabrasil.com.br</p>
+    </footer>
+
+</body>
+</html>
